@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable name="category" type="ginyolith.aboutme.model.Category" />
+    </data>
+<RelativeLayout
+    android:id="@+id/list_category_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/list_category_title"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        bind:text="@{category.title}"
+        android:text="カテゴリー"
+    />
+
+    <TextView
+        android:id="@+id/list_category_description"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_category_title"
+        android:layout_centerVertical="true"
+        android:text="詳細"
+        android:textSize="15sp"
+        bind:text="@{category.description}"
+    />
+
+    <ImageButton
+        android:id="@+id/button_category_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete_forever_black_36dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>
+</layout>
