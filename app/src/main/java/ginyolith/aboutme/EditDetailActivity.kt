@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import ginyolith.aboutme.databinding.ActivityEditDetailBinding
 import ginyolith.aboutme.model.Detail
 
-const val KEY_INSERT_DETAIL_RESULT = "INSERT_DETAIL_RESULT"
-
 class EditDetailActivity : AppCompatActivity() {
     lateinit var binding : ActivityEditDetailBinding
 
@@ -25,9 +23,7 @@ class EditDetailActivity : AppCompatActivity() {
                 getDatabase().getDetailDAO().insertAll(detail)
             }
 
-            val intent = Intent(this, CategoryDetailActivity::class.java)
-            intent.putExtra(KEY_INSERT_DETAIL_RESULT, true)
-            startActivity(intent)
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }

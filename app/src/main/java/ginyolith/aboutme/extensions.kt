@@ -19,6 +19,12 @@ fun Activity.getDatabase() : AboutMeDatabase{
     return (this.application as CustomApplication).database
 }
 
+/** RoomのDatabaseインスタンス取得の簡略化関数 */
+fun android.support.v4.app.Fragment.getDatabase() : AboutMeDatabase{
+    return (this.activity?.application as CustomApplication).database
+}
+
+
 /** RecyclerViewに区切り線を入れる関数 */
 fun RecyclerView.setDividerEnabled(context : Context, enabled : Boolean) {
     // 区切り線のスタイル設定を取得

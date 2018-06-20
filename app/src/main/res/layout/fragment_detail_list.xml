@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    bind:context=".fragment.DetailListFragment">
+    <data>
+        <variable name="category" type="ginyolith.aboutme.model.Category"></variable>
+    </data>
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detail_list_category_title"
+                android:layout_width="match_parent"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:text="カテゴリー名"
+                bind:text="@{category.title}"
+            />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/detail_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_create_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_create_white_24dp"
+            app:fabSize="auto"
+            android:layout_gravity="bottom|end"
+        />
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" app:startDestination="@id/categoryListFragment"
+            tools:ignore="MissingDefaultResource">
+
+    <fragment android:id="@+id/categoryListFragment" android:name="ginyolith.aboutme.fragment.CategoryListFragment"
+              android:label="fragment_category_list" tools:layout="@layout/fragment_category_list">
+        <action android:id="@+id/toDetailList"
+                app:destination="@id/detailListFragment" app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment android:id="@+id/detailListFragment" android:name="ginyolith.aboutme.fragment.DetailListFragment"
+              android:label="fragment_detail_list" tools:layout="@layout/fragment_detail_list">
+    </fragment>
+    <fragment android:id="@+id/blankFragment" android:name="ginyolith.aboutme.BlankFragment"
+              android:label="fragment_blank" tools:layout="@layout/fragment_blank"/>
+</navigation>

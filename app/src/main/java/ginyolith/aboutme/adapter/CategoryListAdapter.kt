@@ -1,9 +1,13 @@
 package ginyolith.aboutme.adapter
 
+import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import ginyolith.aboutme.EXTRA_CATEGORY_ID
+import ginyolith.aboutme.R
 import ginyolith.aboutme.databinding.ViewCategoryBinding
 import ginyolith.aboutme.model.Category
 

@@ -2,15 +2,34 @@ package ginyolith.aboutme.data
 
 import android.arch.persistence.room.*
 import android.arch.persistence.room.Database
+import android.content.Context
 import ginyolith.aboutme.model.Category
 import ginyolith.aboutme.model.Detail
-
-const val database_name = "aboutme.db"
 
 @Database(entities = [Category::class, Detail::class], version = 2, exportSchema = false)
 abstract class AboutMeDatabase : RoomDatabase() {
     abstract fun getCategoryDAO() : CategoryDAO
     abstract fun getDetailDAO() : DetailDAO
+
+    companion object {
+
+        private var INSTANCE: AboutMeDatabase? = null
+        val database_name = "aboutme.db"
+        private val lock = Any()
+
+        fun getInstance(context: Context): AboutMeDatabase {
+            synchronized(lock) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.applicationContext,
+                            AboutMeDatabase::class.java, database_name)
+                            .allowMainThreadQueries()
+                            .fallbackToDestructiveMigration()
+                            .build()
+                }
+                return INSTANCE!!
+            }
+        }
+    }
 }
 
 @Dao
@@ -44,9 +63,6 @@ interface DetailDAO {
 
     @Query("delete from detail")
     fun deleteAll()
-
-    @Delete
-    fun deleteAll(vararg detail : Detail)
 
     @Query("delete from detail where id = :id")
     fun deleteById(id : Long)
